@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="Bienvenue">Bienvenue</string>
+    <string name="my_app_name">Application de gestion de syndic</string>
+    <string name="btn_continuer">Continuer</string>
+
+    <!-- Dashboard strings -->
+    <string name="welcome">Bienvenue</string>
+    <string name="user_name">Cher Utilisateur</string>
+    <string name="cd_avatar">Avatar de l\'utilisateur</string>
+
+    <!-- Card titles -->
+    <string name="solde_tresorerie">Solde de trésorerie</string>
+    <string name="travaux_en_cours">Travaux en cours</string>
+    <string name="reclamation">Réclamation</string>
+    <string name="a_proximite">À proximité</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_solde">Icône solde de trésorerie</string>
+    <string name="cd_travaux">Icône travaux en cours</string>
+    <string name="cd_reclamation">Icône réclamation</string>
+    <string name="cd_proximite">Icône à proximité</string>
+</resources>

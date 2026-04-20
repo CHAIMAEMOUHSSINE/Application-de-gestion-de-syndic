@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--brand colors-->
+    <color name="primary">#1a1a1a</color>
+    <color name="secondary">#ffffff</color>
+
+    <!--status colors-->
+    <color name="success">#4bbf73</color>
+    <color name="info">#1f9bcf</color>
+    <color name="warning">#f0ad4e</color>
+    <color name="danger">#CB22FF</color>
+
+    <!--Neutral colors-->
+    <color name="light">#f0f1f2</color>
+    <color name="dark">#343a40</color>
+    <color name="white">#ffffff</color>
+
+    <!--Text colors-->
+    <color name="text_primary">#212529</color>
+    <color name="text_secondary">#E0E0E0</color>
+    <color name="text_light">#FFFFFF</color>
+
+    <!--Card background-->
+    <color name="card_background">#FFFFFF</color>
+
+    <!--Teal colors-->
+    <color name="teal_700">#790047</color>
+    <color name="teal_200">#E91E63</color>
+</resources>
