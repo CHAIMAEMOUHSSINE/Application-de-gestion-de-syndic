@@ -1,20 +1,36 @@
 package net.chaimae.myapplication;
 
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReclamationAdapter extends RecyclerView.Adapter<ReclamationAdapter.ViewHolder> {
 
-    private ArrayList<Reclamation> listReclamations;
+    private List<Reclamation> listReclamations;
+    private OnReclamationListener listener;
 
-    public ReclamationAdapter(ArrayList<Reclamation> listReclamations) {
-        this.listReclamations = listReclamations;
+    public void ajouterReclamation(Reclamation nouvelleReclamation) {
+    }
+
+    public interface OnReclamationListener {
+        void onModifier(Reclamation reclamation);
+        void onSupprimer(Reclamation reclamation);
+    }
+
+    public ReclamationAdapter(OnReclamationListener listener) {
+        this.listReclamations = new ArrayList<>();
+        this.listener = listener;
+    }
+
+    public void setReclamations(List<Reclamation> reclamations) {
+        this.listReclamations = reclamations;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -28,8 +44,20 @@ public class ReclamationAdapter extends RecyclerView.Adapter<ReclamationAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Reclamation reclamation = listReclamations.get(position);
-        holder.txtTitre.setText(reclamation.getTitre());  // ← Affiche le vrai titre
-        // holder.txtDescription.setText(reclamation.getDescription()); // Décommentez si besoin
+        holder.txtTitre.setText(reclamation.getTitre());
+        holder.txtDescription.setText(reclamation.getDescription());
+
+        holder.btnModifier.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onModifier(reclamation);
+            }
+        });
+
+        holder.btnSupprimer.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onSupprimer(reclamation);
+            }
+        });
     }
 
     @Override
@@ -37,18 +65,16 @@ public class ReclamationAdapter extends RecyclerView.Adapter<ReclamationAdapter.
         return listReclamations.size();
     }
 
-    public void ajouterReclamation(Reclamation reclamation) {
-        listReclamations.add(reclamation);
-        notifyItemInserted(listReclamations.size() - 1);
-    }
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtTitre, txtDescription;
+        ImageView btnModifier, btnSupprimer;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtTitre = itemView.findViewById(R.id.txtTitre);
             txtDescription = itemView.findViewById(R.id.txtDescription);
+            btnModifier = itemView.findViewById(R.id.btnModifier);
+            btnSupprimer = itemView.findViewById(R.id.btnSupprimer);
         }
     }
 }
